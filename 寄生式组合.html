@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Bd(name){
+            this.name = name;
+        }
+        Bd.prototype.say = function(){
+            alert('我叫'+this.name)
+        }
+
+        function Ba(name){
+            Bd.call(this,name)
+        }
+        Ba.prototype = Object.create(Bd.prototype) // 寄生式组合
+        let a = new Bd('三');
+        let c = new Ba('四');
+        a.say()
+        c.say()
+    </script>
+</body>
+</html>

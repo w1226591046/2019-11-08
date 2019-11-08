@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function Bad(name){
+        //     this.name = name
+        // }
+        // Bad.prototype.say = function(){
+        //     alert(this.name)
+        // }
+        // function Bdd(name){
+        //      Bad.call(this,name)
+        // }
+        // // Bdd.prototype = new Bad;
+        // function Pao(){}
+        // Pao.prototype = Bad.prototype;
+        // Bdd.prototype = new Pao;
+        // let cc= new Bdd('哈哈哈');
+        // cc.say()
+
+        function Ba(name){
+            this.name = name;
+        }
+        Ba.prototype.cc = function(){
+            alert(this.name)
+        }
+        function Bd(name){
+            Ba.call(this,name)
+        }
+        Bd.prototype = new Ba;
+        Bd.prototype.cc = function(){
+            alert('我是')
+        }
+        
+        let a = new Ba('嘿')
+        let s = new Bd('哈')
+        s.cc()
+    </script>
+</body>
+</html>

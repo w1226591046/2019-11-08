@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            面向对象的特征：
+                封装、继承、多态
+            继承：
+                子类具有父类的一部分特征（这部分相同的特征是从父类继承下来的），自己还有自己的特征
+                继承的写法可以让字类代码量更少，从而到达高内聚低耦合
+            继承方式很多：
+                类式继承（call继承）
+                原型继承
+                寄生式组合继承
+                拷贝继承
+                对象继承
+                class继承
+                ...    
+
+            继承最后的结果是能够继承父类的属性和方法
+                继承属性：调用父类，通过call把this变为子类的实例
+                方法继承：通过浅拷贝，把父类上原型的方法或者属性都赋值给字类的原型
+                Object.assigin(子类.prototype,父类.prototype)·
+
+            
+        */
+        function Ban(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        Ban.prototype.say = function(){
+            alert('我的名字叫'+ this.name) //继承父类属性
+        }
+        
+        function Bca(name,age){
+            Ban.call(this,name,age)
+        }
+       let bn = new Ban('哈哈',18);
+       let cc = new Bca('啊啊',20)
+       console.log(cc.age)
+       Object.assign(Bca.prototype,Ban.prototype)//继承父类方法
+       cc.say()
+    </script>
+</body>
+</html>
